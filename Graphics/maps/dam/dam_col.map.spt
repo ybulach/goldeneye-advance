@@ -1,0 +1,15 @@
+    Fonds.Ajoute "dam_col", 1
+    Fonds[1].EmulGBA = faux
+    Fonds.Ajoute "dam_fond", 2
+    Fonds[2].EmulGBA = faux
+    Fonds.Ajoute "dam_plan", 3
+    Fonds[3].EmulGBA = faux
+    Bits.Affiche
+    ModeHexa.FondActif = vrai
+    Editeur.Zoom = 3.50
+    Editeur.Deplace 1032, 776, 0, 0, vrai
+    Bits.Deplace 539, 159
+    Fin
+
+
+

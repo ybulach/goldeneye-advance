@@ -1,0 +1,71 @@
+#Fichier de projet GBA Graphics
+
+#Infos utiles sur la dernière session
+ .section infos
+  Répertoire = "D:\Perso\GoldenEye_Advance\Graphics\maps\exemple"
+  Script = "script.spt"
+  AidePerso = "lisezmoi.htm"
+
+  convert.couleurMasque = RGB(255,0,255)
+  convert.luminosite   GAMMA=RGB(1.000,1.000,1.000)  ADD=RGB(0.0,0.0,0.0)  ALPHA=RGB(0.0,0.0,0.0)
+  convert.mode = 0
+
+  system.sauverParamsMapsAuto = faux
+  system.MemoireMax = 32 Mo
+  Format = "Standard"
+
+  DefModele "Default"		{
+  }
+  Modele = "Default"
+
+  Plateforme = "Game Boy Advance, Nintendo"
+  GBA.paletteMask = vrai
+  GBA.mirrorMask = vrai
+  GBA.align = 0
+  Fin
+
+#Eléments de l'arbre du projet
+ .section fichiers
+ #--------------
+  Elément: exemple_plan
+  Type: carte
+  Fichier: exemple_plan.map.c
+  Base: exemple_plan.png
+ #--------------
+  Elément: exemple
+  Type: tileset
+  Fichier: exemple.til.c
+  Base: exemple_plan.png
+ #--------------
+  Elément: exemple
+  Type: palette
+  Fichier: exemple.pal.c
+  Base: exemple_plan.png
+ #--------------
+  Elément: exemple_fond
+  Type: carte
+  Fichier: exemple_fond.map.c
+  Base: exemple_fond.png
+ #--------------
+  Elément: colisions
+  Type: tileset
+  Fichier: ..\common\colisions.til.c
+  Base: ..\common\colisions.png
+ #--------------
+  Elément: colisions
+  Type: palette
+  Fichier: ..\common\colisions.pal.c
+  Base: ..\common\colisions.png
+ #--------------
+  Elément: exemple_col
+  Type: carte
+  Fichier: exemple_col.map.c
+  Base: exemple_col.map.c
+ Fin
+
+#Section où vous pouvez entrer n'importe quelle commande de script. Cela vous permet de régler les différentes variables.
+ .section données
+  Fin
+
+
+

@@ -1,0 +1,66 @@
+#Fichier de projet GBA Graphics
+
+#Infos utiles sur la dernière session
+ .section infos
+  Répertoire = "D:\Perso\GoldenEye_Advance\Graphics\sprites"
+  Script = "script.spt"
+  AidePerso = "lisezmoi.htm"
+
+  convert.couleurMasque = RGB(255,0,255)
+  convert.luminosite   GAMMA=RGB(1.000,1.000,1.000)  ADD=RGB(0.0,0.0,0.0)  ALPHA=RGB(0.0,0.0,0.0)
+  convert.mode = 0
+
+  system.sauverParamsMapsAuto = faux
+  system.MemoireMax = 32 Mo
+  Format = "Standard"
+
+  DefModele "Default"		{
+  }
+  Modele = "Default"
+
+  Plateforme = "Game Boy Advance, Nintendo"
+  GBA.paletteMask = vrai
+  GBA.mirrorMask = vrai
+  GBA.align = 0
+  Fin
+
+#Eléments de l'arbre du projet
+ .section fichiers
+ #--------------
+  Elément: curseur
+  Type: tileset
+  Fichier: curseur\curseur.til.c
+  Base: curseur\curseur.png
+ #--------------
+  Elément: font
+  Type: tileset
+  Fichier: font\font.til.c
+  Base: font\font.png
+ #--------------
+  Elément: james_bond
+  Type: tileset
+  Fichier: james_bond\james_bond.til.c
+  Base: james_bond\james_bond.png
+ #--------------
+  Elément: scientifique
+  Type: tileset
+  Fichier: scientifique\scientifique.til.c
+  Base: scientifique\scientifique.png
+ #--------------
+  Elément: tir
+  Type: tileset
+  Fichier: tir\tir.til.c
+  Base: tir\tir.png
+ #--------------
+  Elément: interface
+  Type: palette
+  Fichier: interface\interface.pal.c
+  Base: interface\interface.bmp
+ Fin
+
+#Section où vous pouvez entrer n'importe quelle commande de script. Cela vous permet de régler les différentes variables.
+ .section données
+  Fin
+
+
+

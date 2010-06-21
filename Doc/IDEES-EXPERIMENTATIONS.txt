@@ -1,0 +1,11 @@
+// JEU: BACKGROUNDS ET MAP//
+Les backgrounds texte (ceux qui seront utilisés) ne peuvent avoir qu'une dimension maximal de 512x512 pixels.
+Une map devant être beaucoup plus grande, on ne peut mettre en mémoire qu'une petite partie.
+Les dimensions des backgrounds seront donc de 256x256 pixels (la valeur la plus petite).
+Seules 240x160 pixels seront utilisés pour la map (30x20 tiles), les autres tiles resteront vides.
+A chaque changement d'offset (et uniquement lors d'un changement), on chargera donc une autre partie des backgrounds (DMA).
+Il faut faire attention lors du chargement (chargement en ligne par ligne) de ne charger que les tiles qui seront dans l'écran.
+Si on arrive aux bords de la map, le défilement continue, mais on y mettra des tiles vides: exemple:
+	On souhaite charger des tiles 1000 à 1030, mais la taille de la map est 1024.
+	Il faudra donc ajouter des tiles vides manquant (dans ce cas: 6) et arrêter le chargement de cette ligne, qui pourrait charger les tiles de la ligne inférieur.
+Cet exemple est aussi valable pour les colonnes.

@@ -1,0 +1,73 @@
+#Fichier de projet GBA Graphics
+
+#Infos utiles sur la dernière session
+ .section infos
+  Répertoire = "D:\Perso\GoldenEye_Advance\Graphics\maps\dam"
+  Script = "script.spt"
+  AidePerso = "lisezmoi.htm"
+
+  convert.couleurMasque = RGB(255,0,255)
+  convert.luminosite   GAMMA=RGB(1.000,1.000,1.000)  ADD=RGB(0.0,0.0,0.0)  ALPHA=RGB(0.0,0.0,0.0)
+  convert.mode = 0
+
+  system.sauverParamsMapsAuto = faux
+  system.MemoireMax = 32 Mo
+  Format = "Standard"
+
+  DefModele "Default"		{
+  }
+  Modele = "Default"
+
+  Plateforme = "Game Boy Advance, Nintendo"
+  GBA.paletteMask = vrai
+  GBA.mirrorMask = vrai
+  GBA.align = 0
+  GBA.revColorOrder = faux
+  GBC.dmgmode = faux
+  Fin
+
+#Eléments de l'arbre du projet
+ .section fichiers
+ #--------------
+  Elément: colisions
+  Type: tileset
+  Fichier: ..\common\colisions.til.c
+  Base: ..\common\colisions.png
+ #--------------
+  Elément: colisions
+  Type: palette
+  Fichier: ..\common\colisions.pal.c
+  Base: ..\common\colisions.png
+ #--------------
+  Elément: dam_col
+  Type: carte
+  Fichier: dam_col.map.c
+  Base: dam_col.map.c
+ #--------------
+  Elément: dam_fond
+  Type: carte
+  Fichier: dam_fond.map.c
+  Base: dam_fond.png
+ #--------------
+  Elément: dam
+  Type: tileset
+  Fichier: dam.til.c
+  Base: dam_fond.png
+ #--------------
+  Elément: dam
+  Type: palette
+  Fichier: dam.pal.c
+  Base: dam_fond.png
+ #--------------
+  Elément: dam_plan
+  Type: carte
+  Fichier: dam_plan.map.c
+  Base: dam_plan.png
+ Fin
+
+#Section où vous pouvez entrer n'importe quelle commande de script. Cela vous permet de régler les différentes variables.
+ .section données
+  Fin
+
+
+
