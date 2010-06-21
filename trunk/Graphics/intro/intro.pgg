@@ -1,0 +1,66 @@
+#Fichier de projet GBA Graphics
+
+#Infos utiles sur la dernière session
+ .section infos
+  Répertoire = "D:\GoldenEye_Advance\Graphics\intro"
+  Script = "script.spt"
+  AidePerso = "lisezmoi.htm"
+
+  convert.couleurMasque = RGB(255,0,255)
+  convert.luminosite   GAMMA=RGB(1.000,1.000,1.000)  ADD=RGB(0.0,0.0,0.0)  ALPHA=RGB(0.0,0.0,0.0)
+  convert.mode = 0
+
+  system.sauverParamsMapsAuto = faux
+  system.MemoireMax = 32 Mo
+  Format = "Standard"
+
+  DefModele "Default"		{
+  }
+  Modele = "Default"
+
+  Plateforme = "Game Boy Advance, Nintendo"
+  GBA.paletteMask = vrai
+  GBA.mirrorMask = vrai
+  GBA.align = 0
+  Fin
+
+#Eléments de l'arbre du projet
+ .section fichiers
+ #--------------
+  Elément: player_advance
+  Type: bitmap
+  Fichier: player_advance\player_advance.bmp.c
+  Base: player_advance\player_advance.png
+ #--------------
+  Elément: player_advance
+  Type: palette
+  Fichier: player_advance\player_advance.pal.c
+  Base: player_advance\player_advance.png
+ #--------------
+  Elément: logo
+  Type: bitmap
+  Fichier: logo\logo.bmp.c
+  Base: logo\logo.png
+ #--------------
+  Elément: logo
+  Type: palette
+  Fichier: logo\logo.pal.c
+  Base: logo\logo.png
+ #--------------
+  Elément: info
+  Type: bitmap
+  Fichier: info\info.bmp.c
+  Base: info\info.png
+ #--------------
+  Elément: info
+  Type: palette
+  Fichier: info\info.pal.c
+  Base: info\info.png
+ Fin
+
+#Section où vous pouvez entrer n'importe quelle commande de script. Cela vous permet de régler les différentes variables.
+ .section données
+  Fin
+
+
+

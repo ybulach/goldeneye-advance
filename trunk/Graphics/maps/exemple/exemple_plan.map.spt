@@ -1,0 +1,8 @@
+    Fonds.Ajoute "exemple_plan", 1
+    Fonds[1].EmulGBA = faux
+    ModeHexa.FondActif = vrai
+    Editeur.Deplace 473, 348, 78, 130, faux
+    Fin
+
+
+

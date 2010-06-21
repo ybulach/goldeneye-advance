@@ -1,0 +1,66 @@
+#Fichier de projet GBA Graphics
+
+#Infos utiles sur la dernière session
+ .section infos
+  Répertoire = "D:\goldeneye-advance\Graphics\menu"
+  Script = "script.spt"
+  AidePerso = "lisezmoi.htm"
+
+  convert.couleurMasque = RGB(255,0,255)
+  convert.luminosite   GAMMA=RGB(1.000,1.000,1.000)  ADD=RGB(0.0,0.0,0.0)  ALPHA=RGB(0.0,0.0,0.0)
+  convert.mode = 0
+
+  system.sauverParamsMapsAuto = faux
+  system.MemoireMax = 32 Mo
+  Format = "Standard"
+
+  DefModele "Default"		{
+  }
+  Modele = "Default"
+
+  Plateforme = "Game Boy Advance, Nintendo"
+  GBA.paletteMask = vrai
+  GBA.mirrorMask = vrai
+  GBA.align = 0
+  Fin
+
+#Eléments de l'arbre du projet
+ .section fichiers
+ #--------------
+  Elément: menu_principal
+  Type: bitmap
+  Fichier: menu_principal\menu_principal.bmp.c
+  Base: menu_principal\menu_principal.png
+ #--------------
+  Elément: menu_principal
+  Type: palette
+  Fichier: menu_principal\menu_principal.pal.c
+  Base: menu_principal\menu_principal.png
+ #--------------
+  Elément: menu_briefing
+  Type: bitmap
+  Fichier: menu_briefing\menu_briefing.bmp.c
+  Base: menu_briefing\menu_briefing.png
+ #--------------
+  Elément: menu_briefing
+  Type: palette
+  Fichier: menu_briefing\menu_briefing.pal.c
+  Base: menu_briefing\menu_briefing.png
+ #--------------
+  Elément: menu_briefing_01
+  Type: bitmap
+  Fichier: menu_briefing\menu_briefing_01.bmp.c
+  Base: menu_briefing\menu_briefing_01.png
+ #--------------
+  Elément: menu_briefing_01
+  Type: palette
+  Fichier: menu_briefing\menu_briefing_01.pal.c
+  Base: menu_briefing\menu_briefing_01.png
+ Fin
+
+#Section où vous pouvez entrer n'importe quelle commande de script. Cela vous permet de régler les différentes variables.
+ .section données
+  Fin
+
+
+

@@ -1,0 +1,62 @@
+#ifndef JEU_H
+#define JEU_H
+
+// La structure des données d'un sprite
+typedef struct {
+    int x;			// Position en x du sprite
+    int y;			// Position en y du sprite
+    int jump;		// Puissance du saut
+	int gravity;	// Puissance de la gravité
+    int anim;		// Animation courrante
+    int anim_cnt;	// Compteur (timer) pour l'animation
+    int gfx;		// Le sprite
+    int size;		// La taille du sprite (en pixels)
+} Sprite;
+extern Sprite sprite[128];
+
+//////////
+// Maps //
+//////////
+#define CharBaseBlock(n)      (((n) * 0x4000) + 0x6000000)
+#define ScreenBaseBlock(n)    (((n) * 0x800)  + 0x6000000)
+
+// Les dimensions de la map
+#define MAP_WIDTH	256
+#define MAP_HEIGHT	64
+
+// Les différents blocs de colision
+#define COL_NONE	0x0000
+#define COL_ALL		0x0001
+#define COL_UP		0x0002
+#define COL_DOWN	0x0003
+#define COL_LEFT	0x0004
+#define COL_RIGHT	0x0005
+#define COL_DEAD	0x0006
+
+// Les différentes animations des sprites
+#define ANIM(s)	SPRITE_CALC_BLOC(sprite[s].anim * ((sprite[s].size >> 3) * (sprite[s].size >> 3)))
+enum
+{
+	ANIM_RIEN = 0,
+	ANIM_MARCHE1,
+	ANIM_MARCHE2,
+	ANIM_MARCHE3,
+	ANIM_SAUTE,
+	ANIM_TOMBE,
+	ANIM_MORT
+};
+
+// L'identifiant du sprite de James Bond
+#define JAMES_BOND	0
+
+// exemple
+extern const unsigned short exemple_palette[];
+extern const unsigned char exemple_tiles[][];
+extern const unsigned short exemple_fond_map[][];
+extern const unsigned short exemple_plan_map[][];
+extern const unsigned short exemple_col_map[][];
+
+// Le jeu
+extern void jeu();
+
+#endif // JEU_H
