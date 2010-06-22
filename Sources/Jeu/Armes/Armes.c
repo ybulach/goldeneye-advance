@@ -93,6 +93,7 @@ void jeuInitArmes()
 		sprite[i].anim = ANIM_MORT;
 		
 		commonSpriteChangePos(i, 240, 160);
+		commonSpriteChangeGfx(i, sprite[i].gfx + sprite[i].anim, 1);
 	}
 }
 
@@ -232,7 +233,7 @@ void jeuUpdateTirs()
 void jeuTir(u8 s)
 {
 	// Si le délai est dépassé et qu'il y a des balles dans l'arme
-	if((sprite[s].arme_cnt > armes[sprite[s].current_arme].cadence) && (armes[sprite[s].current_arme].ammo1) && (sprite[s].recharge == 0))
+	if((sprite[s].arme_cnt > armes[sprite[s].current_arme].cadence) && (armes[sprite[s].current_arme].ammo1 > 0) && (sprite[s].recharge == 0))
 	{
 		// On crée un tir dans un emplacement vide
 		int i, j = 0;
@@ -244,6 +245,7 @@ void jeuTir(u8 s)
 		if(j > 0)
 		{
 			sprite[j].anim = ANIM_RIEN;
+			commonSpriteChangeGfx(j, sprite[j].gfx + sprite[j].anim, 1);
 			
 			sprite[j].direction = sprite[s].direction;
 			
