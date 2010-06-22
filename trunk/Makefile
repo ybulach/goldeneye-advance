@@ -41,6 +41,9 @@ OFILES = Sources/crt0.o	\
 			Sources/Jeu/Personnages/Personnages.o \
 			Sources/Main.o	\
 			Sources/Menu/Menu.o \
+			Sources/Menu/MenuPrincipal.o \
+			Sources/Menu/MenuBriefing.o \
+			Sources/Menu/MenuCredits.o \
 			\
 			Graphics/sprites/tir/tir.til.o \
 			Graphics/sprites/curseur/curseur.til.o \
@@ -73,9 +76,10 @@ OFILES = Sources/crt0.o	\
 			Graphics/maps/dam/dam_plan.map.o \
 			Graphics/maps/dam/dam_col.map.o \
 			\
-			Sounds/musiques/dam.o \
-			Sounds/musiques/theme.o \
-			Sounds/musiques/mission_briefing.o \
+# Removed: Musics and sounds to reduce size of ROM during development
+#			Sounds/musiques/dam.o \
+#			Sounds/musiques/theme.o \
+#			Sounds/musiques/mission_briefing.o \
 
 #######################
 # Targets "standards" #
@@ -110,7 +114,6 @@ clean:
 
 cleanall: clean
 	rm -f $(OFILES)
-	rm -f *.gba *.sav
 
 #######
 # END #

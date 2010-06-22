@@ -194,4 +194,7 @@ void jeu()
 		// Copie des sprites dans la mémoire OAM
 		commonCopyOAMBuffer();
 	}
+	
+	// On arrête la musique
+	//AdpcmStop(0);
 }
