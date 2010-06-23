@@ -546,8 +546,6 @@ void commonDisableInterrupt(u16 interruption)
 /////////////////////////////
 void commonBasicVblInterrupt(void)
 {
-	AdpcmDecodeVbl(0);
-	AdpcmDecodeVbl(1);
 	++compteVBL;
 }
 
@@ -622,8 +620,8 @@ void commonSpriteFlip(int s, int horizontal, int vertical)
 		
 	if(vertical)
 		OAMBuffer[s].attribute1 ^= 0x2000;
-	//else
-	//	OAMBuffer[s].attribute1 &= ~0x2000;
+	else
+		OAMBuffer[s].attribute1 &= ~0x2000;
 }
 
 ////////////////////

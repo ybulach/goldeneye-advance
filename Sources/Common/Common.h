@@ -6,7 +6,6 @@
 ////////////////
 #include <stdlib.h>
 #include <string.h>
-#include "Adpcm/Decoder/Adpcm.h"
 #include "../Main.h"
 #include "../Intro/Intro.h"
 #include "../Jeu/Jeu.h"

@@ -41,9 +41,6 @@ void jeuLoadLevel(int level)
 			map_plan = dam_plan_map;
 			
 			map_col = dam_col_map;
-			
-			// On joue la musique du niveau
-			//AdpcmStart(&ADPCM_dam, -1, 0);
 			break;
 		case 1:
 			MAP_WIDTH = 256;

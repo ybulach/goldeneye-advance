@@ -260,9 +260,6 @@ void jeuTir(u8 s)
 			
 			// On enlève la balle de l'arme
 			armes[sprite[s].current_arme].ammo1--;
-			
-			// On joue le son du tir
-			//AdpcmStart(&ADPCM_tir_pp7, 1, 1);
 		}
 		
 		sprite[s].arme_cnt = 0;
