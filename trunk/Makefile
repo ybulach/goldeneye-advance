@@ -32,7 +32,6 @@ ADD_LIBS+=
 # Liste des fichiers a compiler #
 #################################
 OFILES = Sources/crt0.o	\
-			Sources/Common/Adpcm/Decoder/Adpcm.o \
 			Sources/Common/Common.o \
 			Sources/Intro/Intro.o \
 			Sources/Jeu/Jeu.o \

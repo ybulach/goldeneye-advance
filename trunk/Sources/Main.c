@@ -58,9 +58,6 @@ int main()
 	commonDMACopy((void*)james_bond_tiles, (void*)(&OAMData[SPRITE_CALC_OFFSET(SPRITE_JAMES_BOND)]), SPRITE_CALC_SIZE(28), DMA_16NOW);
 	commonDMACopy((void*)scientifique_tiles, (void*)(&OAMData[SPRITE_CALC_OFFSET(SPRITE_SCIENTIFIQUE)]), SPRITE_CALC_SIZE(28), DMA_16NOW);
 	
-	// Initialisation du decodeur ADPCM
-	AdpcmInit(2);
-	
 	// Mise en place l'interruption sur le retour de balayage (VBL)
 	commonSetInterrupt(IT_VBLANK, (IntrFunction*) &commonBasicVblInterrupt);
 	

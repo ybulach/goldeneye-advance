@@ -44,9 +44,6 @@ void intro()
 	////////////////////////////////////
 	// Logo avec un texte PRESS START //
 	////////////////////////////////////
-	// On démarre la musique d'intro
-	//AdpcmStart(&ADPCM_theme, 1, 0);
-	
 	// Fondu vers l'image
 	commonFadeIn((void*)logo_bitmap8, (void*)logo_palette);
 	
@@ -80,7 +77,4 @@ void intro()
 	
 	REG_DISPCNT = 0;
 	REG_BG2CNT = 0;
-	
-	// On arrête la musique
-	//AdpcmStop(0);
 }

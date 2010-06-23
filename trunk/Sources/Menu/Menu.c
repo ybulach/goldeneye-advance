@@ -8,9 +8,6 @@
 //////////
 void menu()
 {
-	// On démarre la musique d'intro
-	//AdpcmStart(&ADPCM_mission_briefing, 1, 0);
-	
 	while(scene < JEU)
 	{
 		if(scene == MENU_BRIEFING)
@@ -20,7 +17,4 @@ void menu()
 		else
 			menuPrincipal();
 	}
-	
-	// On arrête la musique
-	//AdpcmStop(0);
 }
