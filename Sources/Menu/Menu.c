@@ -8,6 +8,10 @@
 //////////
 void menu()
 {
+	// On joue la musique du menu
+	//AAS_MOD_Play(AAS_DATA_MOD_test);
+	//AAS_MOD_SetLoop(AAS_TRUE);
+	
 	while(scene < JEU)
 	{
 		if(scene == MENU_BRIEFING)
@@ -17,4 +21,7 @@ void menu()
 		else
 			menuPrincipal();
 	}
+	
+	// On arrête la musique
+	//AAS_MOD_Stop();
 }

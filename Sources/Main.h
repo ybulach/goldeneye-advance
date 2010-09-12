@@ -39,12 +39,7 @@ extern void mainSaveAll();
 //////////
 // Sons //
 //////////
-// Theme
-//extern const Sound ADPCM_theme;
-// Mission briefing
-//extern const Sound ADPCM_mission_briefing;
-// Dam
-//extern const Sound ADPCM_dam;
+//#include "../Sounds/AAS_Data.h"
 
 ////////////////
 // Graphismes //

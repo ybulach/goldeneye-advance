@@ -58,6 +58,13 @@ int main()
 	commonDMACopy((void*)james_bond_tiles, (void*)(&OAMData[SPRITE_CALC_OFFSET(SPRITE_JAMES_BOND)]), SPRITE_CALC_SIZE(28), DMA_16NOW);
 	commonDMACopy((void*)scientifique_tiles, (void*)(&OAMData[SPRITE_CALC_OFFSET(SPRITE_SCIENTIFIQUE)]), SPRITE_CALC_SIZE(28), DMA_16NOW);
 	
+	// Lancement de l'interruption d'AAS
+	//commonSetInterrupt(IT_TIMER1, (IntrFunction*) &AAS_Timer1InterruptHandler);
+	
+	// Configuration d'AAS
+	//AAS_SetConfig(AAS_CONFIG_MIX_24KHZ, AAS_CONFIG_CHANS_4, AAS_CONFIG_SPATIAL_MONO, AAS_CONFIG_DYNAMIC_OFF);
+	//AAS_SetConfig(AAS_CONFIG_MIX_8KHZ, AAS_CONFIG_CHANS_4, AAS_CONFIG_SPATIAL_MONO, AAS_CONFIG_DYNAMIC_OFF);
+	
 	// Mise en place l'interruption sur le retour de balayage (VBL)
 	commonSetInterrupt(IT_VBLANK, (IntrFunction*) &commonBasicVblInterrupt);
 	

@@ -70,6 +70,8 @@ void commonDMACopy(void* source, void* dest, u16 size, u16 type)
 	REG_DMA3DAD = (u32) dest;
 	REG_DMA3CNT_L = size;
 	REG_DMA3CNT_H = type;
+	
+	//AAS_DoDMA3((u32) source, (u32) dest, size | type);
 }
 
 ////////////////////
@@ -546,6 +548,8 @@ void commonDisableInterrupt(u16 interruption)
 /////////////////////////////
 void commonBasicVblInterrupt(void)
 {
+	//AAS_DoWork();
+	
 	++compteVBL;
 }
 

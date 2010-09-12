@@ -123,7 +123,7 @@ void jeuUpdateTirs()
 			if(armes[sprite[i].current_arme].ammo2 != 0)
 			{
 				// On transfert les balles dans l'arme
-				if(armes[sprite[i].current_arme].ammo2 < armes[sprite[i].current_arme].ammo1)
+				if(armes[sprite[i].current_arme].ammo2 < armes[sprite[i].current_arme].ammo1_total)
 				{
 					armes[sprite[i].current_arme].ammo1 = armes[sprite[i].current_arme].ammo2;
 					armes[sprite[i].current_arme].ammo2 = 0;
