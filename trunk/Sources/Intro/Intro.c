@@ -41,6 +41,14 @@ void intro()
 	// Fondu vers le noir
 	commonFadeOut();
 	
+	///////////////////////
+	// Apex Audio System //
+	///////////////////////
+	//AAS_ShowLogo();
+	
+	// Remise à zéro des sprites
+	commonResetSprites();
+	
 	////////////////////////////////////
 	// Logo avec un texte PRESS START //
 	////////////////////////////////////

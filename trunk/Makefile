@@ -9,10 +9,11 @@ PROGNAME = goldeneye-advance
 HAMDIR  = C:\HAM
 GCCARM  = $(HAMDIR)/gcc-arm
 
-INCDIR  = -I $(GCCARM)/arm-thumb-elf/include -I $(HAMDIR)/include
-LIBDIR  = -L $(GCCARM)/arm-thumb-elf/lib/interwork -L $(GCCARM)/lib/gcc-lib/arm-thumb-elf/3.3.2/interwork -L $(GCCARM)/lib/
+INCDIR  = -I $(GCCARM)/arm-thumb-elf/include -I $(HAMDIR)/include -I Sources/Common/LibAAS -I Sources/Common/LibAAS/LowLevelAccess
+LIBDIR  = -L $(GCCARM)/arm-thumb-elf/lib/interwork -L $(GCCARM)/lib/gcc-lib/arm-thumb-elf/3.3.2/interwork -L $(GCCARM)/lib/ -L Sources/Common/LibAAS/
 
 LD_LIBS = -lgcc -lc
+#LD_LIBS += -lAAS
 
 ASFLAGS = -mthumb-interwork
 CFLAGS  = $(INCDIR) -c -O2 -mthumb-interwork -mlong-calls -Wall
@@ -75,6 +76,7 @@ OFILES = Sources/crt0.o	\
 			Graphics/maps/dam/dam_plan.map.o \
 			Graphics/maps/dam/dam_col.map.o \
 			\
+#			Sounds/AAS_Data.o \
 # Removed: Musics and sounds to reduce size of ROM during development
 #			Sounds/musiques/dam.o \
 #			Sounds/musiques/theme.o \
