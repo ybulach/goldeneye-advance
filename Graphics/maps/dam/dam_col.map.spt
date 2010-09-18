@@ -7,7 +7,7 @@
     Bits.Affiche
     ModeHexa.FondActif = vrai
     Editeur.Zoom = 3.50
-    Editeur.Deplace 1032, 776, 0, 0, vrai
+    Editeur.Deplace 1374, 720, -4, 28, vrai
     Bits.Deplace 539, 159
     Fin
 
