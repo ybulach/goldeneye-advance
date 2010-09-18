@@ -6,25 +6,33 @@ PROGNAME = goldeneye-advance
 ##########################
 # Options de compilation #
 ##########################
-HAMDIR  = C:\HAM
+# HAM Windows
+#PROG_EXT = .exe
+#GCC_VERSION = 3.3.2
+#LIBGCC_STYLE = interwork
+
+# HAM Linux
+GCC_VERSION = 3.2.2
+LIBGCC_STYLE = normal
+
 GCCARM  = $(HAMDIR)/gcc-arm
 
-INCDIR  = -I $(GCCARM)/arm-thumb-elf/include -I $(HAMDIR)/include -I Sources/Common/LibAAS -I Sources/Common/LibAAS/LowLevelAccess
-LIBDIR  = -L $(GCCARM)/arm-thumb-elf/lib/interwork -L $(GCCARM)/lib/gcc-lib/arm-thumb-elf/3.3.2/interwork -L $(GCCARM)/lib/ -L Sources/Common/LibAAS/
+INCDIR  = -I $(HAMDIR)/include -I $(GCCARM)/arm-thumb-elf/include -I Sources/Common/LibAAS -I Sources/Common/LibAAS/LowLevelAccess
+LIBDIR  = -L $(GCCARM)/lib/gcc-lib/arm-thumb-elf/$(GCC_VERSION)/$(LIBGCC_STYLE) -L $(GCCARM)/arm-thumb-elf/lib/$(LIBGCC_STYLE) -L $(GCCARM)/lib/ -L Sources/Common/LibAAS/
 
 LD_LIBS = -lgcc -lc
 #LD_LIBS += -lAAS
 
 ASFLAGS = -mthumb-interwork
 CFLAGS  = $(INCDIR) -c -O2 -mthumb-interwork -mlong-calls -Wall
-LDFLAGS = $(LIBDIR) --script $(HAMDIR)/system/lnkscript
 
-AR      = $(GCCARM)/bin/arm-thumb-elf-ar.exe
-AS      = $(GCCARM)/bin/arm-thumb-elf-as.exe
-CC      = $(GCCARM)/bin/arm-thumb-elf-gcc.exe
-LD      = $(GCCARM)/bin/arm-thumb-elf-ld.exe
-OBJCOPY = $(GCCARM)/bin/arm-thumb-elf-objcopy.exe
-SHELL   = sh.exe
+LDFLAGS = $(LIBDIR) --script $(HAMDIR)/system/lnkscript-afm
+
+AR      = $(GCCARM)/bin/arm-thumb-elf-ar$(PROG_EXT)
+AS      = $(GCCARM)/bin/arm-thumb-elf-as$(PROG_EXT)
+CC      = $(GCCARM)/bin/arm-thumb-elf-gcc$(PROG_EXT)
+LD      = $(GCCARM)/bin/arm-thumb-elf-ld$(PROG_EXT)
+OBJCOPY = $(GCCARM)/bin/arm-thumb-elf-objcopy$(PROG_EXT)
 
 # Celle-ci est pour faire plaisir a VHAM...
 ADD_LIBS+=
