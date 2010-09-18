@@ -2,7 +2,7 @@
 
 #Infos utiles sur la dernière session
  .section infos
-  Répertoire = "D:\Perso\GoldenEye_Advance\Graphics\maps\dam"
+  Répertoire = "D:\Projets\goldeneye-advance\trunk\Graphics\maps\dam"
   Script = "script.spt"
   AidePerso = "lisezmoi.htm"
 
@@ -22,8 +22,6 @@
   GBA.paletteMask = vrai
   GBA.mirrorMask = vrai
   GBA.align = 0
-  GBA.revColorOrder = faux
-  GBC.dmgmode = faux
   Fin
 
 #Eléments de l'arbre du projet
