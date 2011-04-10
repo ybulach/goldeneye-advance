@@ -2,7 +2,7 @@
 
 #Infos utiles sur la dernière session
  .section infos
-  Répertoire = "D:\Perso\GoldenEye_Advance\Graphics\sprites"
+  Répertoire = "Z:\media\Datas\Documents\Programmation\goldeney-advance\trunk\Graphics\sprites"
   Script = "script.spt"
   AidePerso = "lisezmoi.htm"
 
@@ -22,6 +22,8 @@
   GBA.paletteMask = vrai
   GBA.mirrorMask = vrai
   GBA.align = 0
+  GBA.revColorOrder = faux
+  GBC.dmgmode = faux
   Fin
 
 #Eléments de l'arbre du projet
@@ -51,6 +53,11 @@
   Type: tileset
   Fichier: tir\tir.til.c
   Base: tir\tir.png
+ #--------------
+  Elément: soldat
+  Type: tileset
+  Fichier: soldat\soldat.til.c
+  Base: soldat\soldat.png
  #--------------
   Elément: interface
   Type: palette

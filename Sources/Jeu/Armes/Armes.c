@@ -254,7 +254,7 @@ void jeuTir(u8 s)
 			else
 				sprite[j].x = sprite[s].x + sprite[s].size + 2;
 			
-			sprite[j].y = sprite[s].y + (sprite[s].size >> 1) - (sprite[j].size >> 1);
+			sprite[j].y = sprite[s].y + (sprite[s].size >> 1);
 			
 			sprite[j].current_arme = sprite[s].current_arme;
 			

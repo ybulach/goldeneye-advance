@@ -41,54 +41,55 @@ ADD_LIBS+=
 # Liste des fichiers a compiler #
 #################################
 OFILES = Sources/crt0.o	\
-			Sources/Common/Common.o \
-			Sources/Intro/Intro.o \
-			Sources/Jeu/Jeu.o \
-			Sources/Jeu/Armes/Armes.o \
-			Sources/Jeu/Map/Map.o \
-			Sources/Jeu/Personnages/Personnages.o \
-			Sources/Main.o	\
-			Sources/Menu/Menu.o \
-			Sources/Menu/MenuPrincipal.o \
-			Sources/Menu/MenuBriefing.o \
-			Sources/Menu/MenuCredits.o \
-			\
-			Graphics/sprites/tir/tir.til.o \
-			Graphics/sprites/curseur/curseur.til.o \
-			Graphics/sprites/font/font.til.o \
-			Graphics/sprites/interface/interface.pal.o \
-			Graphics/sprites/james_bond/james_bond.til.o \
-			Graphics/sprites/scientifique/scientifique.til.o \
-			\
-			Graphics/intro/info/info.bmp.o \
-			Graphics/intro/info/info.pal.o \
-			Graphics/intro/logo/logo.bmp.o \
-			Graphics/intro/logo/logo.pal.o \
-			Graphics/intro/player_advance/player_advance.bmp.o \
-			Graphics/intro/player_advance/player_advance.pal.o \
-			\
-			Graphics/menu/menu_principal/menu_principal.bmp.o \
-			Graphics/menu/menu_principal/menu_principal.pal.o \
-			Graphics/menu/menu_briefing/menu_briefing_01.bmp.o \
-			Graphics/menu/menu_briefing/menu_briefing_01.pal.o \
-			\
-			Graphics/maps/exemple/exemple.pal.o \
-			Graphics/maps/exemple/exemple.til.o \
-			Graphics/maps/exemple/exemple_fond.map.o \
-			Graphics/maps/exemple/exemple_plan.map.o \
-			Graphics/maps/exemple/exemple_col.map.o \
-			\
-			Graphics/maps/dam/dam.pal.o \
-			Graphics/maps/dam/dam.til.o \
-			Graphics/maps/dam/dam_fond.map.o \
-			Graphics/maps/dam/dam_plan.map.o \
-			Graphics/maps/dam/dam_col.map.o \
-			\
-#			Sounds/AAS_Data.o \
+	Sources/Common/Common.o \
+	Sources/Intro/Intro.o \
+	Sources/Jeu/Jeu.o \
+	Sources/Jeu/Armes/Armes.o \
+	Sources/Jeu/Map/Map.o \
+	Sources/Jeu/Personnages/Personnages.o \
+	Sources/Main.o	\
+	Sources/Menu/Menu.o \
+	Sources/Menu/MenuPrincipal.o \
+	Sources/Menu/MenuBriefing.o \
+	Sources/Menu/MenuCredits.o \
+	\
+	Graphics/sprites/tir/tir.til.o \
+	Graphics/sprites/curseur/curseur.til.o \
+	Graphics/sprites/font/font.til.o \
+	Graphics/sprites/interface/interface.pal.o \
+	Graphics/sprites/james_bond/james_bond.til.o \
+	Graphics/sprites/scientifique/scientifique.til.o \
+	Graphics/sprites/soldat/soldat.til.o \
+	\
+	Graphics/intro/info/info.bmp.o \
+	Graphics/intro/info/info.pal.o \
+	Graphics/intro/logo/logo.bmp.o \
+	Graphics/intro/logo/logo.pal.o \
+	Graphics/intro/player_advance/player_advance.bmp.o \
+	Graphics/intro/player_advance/player_advance.pal.o \
+	\
+	Graphics/menu/menu_principal/menu_principal.bmp.o \
+	Graphics/menu/menu_principal/menu_principal.pal.o \
+	Graphics/menu/menu_briefing/menu_briefing_01.bmp.o \
+	Graphics/menu/menu_briefing/menu_briefing_01.pal.o \
+	\
+	Graphics/maps/exemple/exemple.pal.o \
+	Graphics/maps/exemple/exemple.til.o \
+	Graphics/maps/exemple/exemple_fond.map.o \
+	Graphics/maps/exemple/exemple_plan.map.o \
+	Graphics/maps/exemple/exemple_col.map.o \
+	\
+	Graphics/maps/dam/dam.pal.o \
+	Graphics/maps/dam/dam.til.o \
+	Graphics/maps/dam/dam_fond.map.o \
+	Graphics/maps/dam/dam_plan.map.o \
+	Graphics/maps/dam/dam_col.map.o \
+	\
+#	Sounds/AAS_Data.o \
 # Removed: Musics and sounds to reduce size of ROM during development
-#			Sounds/musiques/dam.o \
-#			Sounds/musiques/theme.o \
-#			Sounds/musiques/mission_briefing.o \
+#	Sounds/musiques/dam.o \
+#	Sounds/musiques/theme.o \
+#	Sounds/musiques/mission_briefing.o \
 
 #######################
 # Targets "standards" #
