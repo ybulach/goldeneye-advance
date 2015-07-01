@@ -1,8 +1,8 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "Menu.h"
-#include "../Common/Common.h"
+#include <Menu.h>
+#include <Common.h>
 
 /////////////////
 // menuCredits //

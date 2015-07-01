@@ -1,10 +1,10 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "../Common/Common.h"
-#include "Armes/Armes.h"
-#include "Map/Map.h"
-#include "Personnages/Personnages.h"
+#include <Common.h>
+#include <Armes.h>
+#include <Map.h>
+#include <Personnages.h>
 
 ///////////
 // AUTRE //

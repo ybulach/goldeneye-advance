@@ -1,7 +1,7 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "../Common/Common.h"
+#include <Common.h>
 
 ///////////
 // intro //
@@ -15,10 +15,10 @@ void intro()
 	// Message d'information //
 	///////////////////////////
 	// Fondu vers l'image
-	commonFadeIn((void*)info_bitmap8, (void*)info_palette);
+	commonFadeIn((void*)infoBitmap, (void*)infoPal);
 	
 	// Affichage de l'image
-	commonDisplayPicture((u16*)info_bitmap8, info_palette);
+	commonDisplayPicture((u16*)infoBitmap, infoPal);
 	
 	// Affichage de l'image pendant 3 seconde
 	commonWaitTime(3, 0);

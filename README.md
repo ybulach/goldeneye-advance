@@ -21,16 +21,4 @@ This is a GBA homebrew, so you need have 3 main choise to play this game:
 
 How to compile
 ===============
-You need a GBA cross-compiler to create a _.gba_ file. There are two _.bat_ file (for Windows users) to easily compile the game. The easiest solution is to install HAM (http://www.ngine.de/) with the .exe executable. The *Build.bat* file is configured to use HAM in *C:\HAM* directory. You should modify this file if you installed HAM at another directory or another hard disk.
-
-For Linux users, the makefile uses the *HAMDIR* environment variable to localize your HAM installation directory.
-
-You should modify this variables in the makefile to switch between Windows and Linux:
-
-| Variable     | Windows Contents | Linux Contents |
-|--------------|------------------|----------------|
-| PROG_EXT     | .exe             | _empty_        |
-| GCC_VERSION  | 3.3.2            | 3.2.2          |
-| LIBGCC_STYLE | interwork        | normal         |
-
-_(This is because Linux version of HAM is older than Windows version.)_
+You will need a GBA cross-compiler to create a _.gba_ file. The makefile uses devkitARM (http://devkitpro.org/wiki/Getting_Started/devkitARM). Valid *DEVKITPRO* and *DEVKITARM* environment variables are needed.

@@ -1,7 +1,7 @@
 #ifndef PERSONNAGES_H
 #define PERSONNAGES_H
 
-#include "../Armes/Armes.h"
+#include <Armes.h>
 
 // Mise à zéro des sprites
 void jeuResetSprites();

@@ -1,7 +1,7 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "../Common/Common.h"
+#include <Common.h>
 
 //////////
 // menu //

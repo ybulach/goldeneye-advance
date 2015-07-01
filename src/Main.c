@@ -1,7 +1,7 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "Common/Common.h"
+#include <Common.h>
 
 Scenes scene = MENU_PRINCIPAL;
 Save sauvegardes[4];
@@ -66,7 +66,7 @@ int main()
 	//AAS_SetConfig(AAS_CONFIG_MIX_8KHZ, AAS_CONFIG_CHANS_4, AAS_CONFIG_SPATIAL_MONO, AAS_CONFIG_DYNAMIC_OFF);
 	
 	// Mise en place l'interruption sur le retour de balayage (VBL)
-	commonSetInterrupt(IT_VBLANK, (IntrFunction*) &commonBasicVblInterrupt);
+	//commonSetInterrupt(IT_VBLANK, (IntrFunction*) &commonBasicVblInterrupt);
 	
 	// Lancement de l'intro
 	intro();

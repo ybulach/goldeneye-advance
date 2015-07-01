@@ -1,7 +1,7 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "Common.h"
+#include <Common.h>
 
 ////////////////////////
 // Variables globales //

@@ -10,10 +10,10 @@
 //#include <AAS.h>
 //#include <AAS_Mixer.h>
 
-#include "../Main.h"
-#include "../Intro/Intro.h"
-#include "../Jeu/Jeu.h"
-#include "../Menu/Menu.h"
+#include <Main.h>
+#include <Intro.h>
+#include <Jeu.h>
+#include <Menu.h>
 
 ///////////
 // Types //

@@ -9,7 +9,7 @@
 #ifndef __AAS_MIXER__
 #define __AAS_MIXER__
 
-#include "AAS.h"
+#include <AAS.h>
 
 AAS_BEGIN_DECLS
 

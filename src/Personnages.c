@@ -1,9 +1,9 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "../../Common/Common.h"
-#include "../Map/Map.h"
-#include "Personnages.h"
+#include <Common.h>
+#include <Map.h>
+#include <Personnages.h>
 
 //////////////////////////////////////////////////
 // Il y a 128 sprites au total:					//

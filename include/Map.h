@@ -39,16 +39,16 @@ u16* map_col;
 
 // exemple
 extern const unsigned short exemple_palette[];
-extern const unsigned char exemple_tiles[][];
-extern const unsigned short exemple_fond_map[][];
-extern const unsigned short exemple_plan_map[][];
-extern const unsigned short exemple_col_map[][];
+extern const unsigned char* exemple_tiles[];
+extern const unsigned short* exemple_fond_map[];
+extern const unsigned short* exemple_plan_map[];
+extern const unsigned short* exemple_col_map[];
 
 // dam
 extern const unsigned short dam_palette[];
-extern const unsigned char dam_tiles[][];
-extern const unsigned short dam_fond_map[][];
-extern const unsigned short dam_plan_map[][];
-extern const unsigned short dam_col_map[][];
+extern const unsigned char* dam_tiles[];
+extern const unsigned short* dam_fond_map[];
+extern const unsigned short* dam_plan_map[];
+extern const unsigned short* dam_col_map[];
 
 #endif // MAP_H

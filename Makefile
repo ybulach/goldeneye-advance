@@ -1,130 +1,175 @@
-#################
-# Nom de la ROM #
-#################
-PROGNAME = goldeneye-advance
+#---------------------------------------------------------------------------------
+# Clear the implicit built in rules
+#---------------------------------------------------------------------------------
 
-##########################
-# Options de compilation #
-##########################
-# HAM Windows
-#PROG_EXT = .exe
-#GCC_VERSION = 3.3.2
-#LIBGCC_STYLE = interwork
+.SUFFIXES:
+#---------------------------------------------------------------------------------
+ifeq ($(strip $(DEVKITARM)),)
+$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM)
+endif
 
-# HAM Linux
-GCC_VERSION = 3.2.2
-LIBGCC_STYLE = normal
+include $(DEVKITARM)/gba_rules
 
-GCCARM  = $(HAMDIR)/gcc-arm
+#---------------------------------------------------------------------------------
+# TARGET is the name of the output, if this ends with _mb a multiboot image is generated
+# BUILD is the directory where object files & intermediate files will be placed
+# SOURCES is a list of directories containing source code
+# DATA is a list of directories containing data files
+# INCLUDES is a list of directories containing header files
+#---------------------------------------------------------------------------------
+TARGET		:=	$(shell basename $(CURDIR))
+BUILD		:=	build
+SOURCES		:=	src Graphics
+DATA		:=
+GRAPHICS	:=	gfx
+INCLUDES	:=	include
 
-INCDIR  = -I $(HAMDIR)/include -I $(GCCARM)/arm-thumb-elf/include -I Sources/Common/LibAAS -I Sources/Common/LibAAS/LowLevelAccess
-LIBDIR  = -L $(GCCARM)/lib/gcc-lib/arm-thumb-elf/$(GCC_VERSION)/$(LIBGCC_STYLE) -L $(GCCARM)/arm-thumb-elf/lib/$(LIBGCC_STYLE) -L $(GCCARM)/lib/ -L Sources/Common/LibAAS/
+#---------------------------------------------------------------------------------
+# options for code generation
+#---------------------------------------------------------------------------------
+ARCH	:=	-mthumb -mthumb-interwork
 
-LD_LIBS = -lgcc -lc
-#LD_LIBS += -lAAS
+CFLAGS	:=	-g -Wall -O3\
+		-mcpu=arm7tdmi -mtune=arm7tdmi\
+ 		-fomit-frame-pointer\
+		-ffast-math \
+		$(ARCH)
 
-ASFLAGS = -mthumb-interwork
-CFLAGS  = $(INCDIR) -c -O2 -mthumb-interwork -mlong-calls -Wall
+CFLAGS	+=	$(INCLUDE)
 
-LDFLAGS = $(LIBDIR) --script $(HAMDIR)/system/lnkscript-afm
+CXXFLAGS	:=	$(CFLAGS) -fno-rtti -fno-exceptions
 
-AR      = $(GCCARM)/bin/arm-thumb-elf-ar$(PROG_EXT)
-AS      = $(GCCARM)/bin/arm-thumb-elf-as$(PROG_EXT)
-CC      = $(GCCARM)/bin/arm-thumb-elf-gcc$(PROG_EXT)
-LD      = $(GCCARM)/bin/arm-thumb-elf-ld$(PROG_EXT)
-OBJCOPY = $(GCCARM)/bin/arm-thumb-elf-objcopy$(PROG_EXT)
+ASFLAGS	:=	$(ARCH)
+LDFLAGS	=	-g $(ARCH) -Wl,-Map,$(notdir $@).map
 
-# Celle-ci est pour faire plaisir a VHAM...
-ADD_LIBS+=
+#---------------------------------------------------------------------------------
+# any extra libraries we wish to link with the project
+#---------------------------------------------------------------------------------
+LIBS	:=	
 
-#################################
-# Liste des fichiers a compiler #
-#################################
-OFILES = Sources/crt0.o	\
-	Sources/Common/Common.o \
-	Sources/Intro/Intro.o \
-	Sources/Jeu/Jeu.o \
-	Sources/Jeu/Armes/Armes.o \
-	Sources/Jeu/Map/Map.o \
-	Sources/Jeu/Personnages/Personnages.o \
-	Sources/Main.o	\
-	Sources/Menu/Menu.o \
-	Sources/Menu/MenuPrincipal.o \
-	Sources/Menu/MenuBriefing.o \
-	Sources/Menu/MenuCredits.o \
-	\
-	Graphics/sprites/tir/tir.til.o \
-	Graphics/sprites/curseur/curseur.til.o \
-	Graphics/sprites/font/font.til.o \
-	Graphics/sprites/interface/interface.pal.o \
-	Graphics/sprites/james_bond/james_bond.til.o \
-	Graphics/sprites/scientifique/scientifique.til.o \
-	Graphics/sprites/soldat/soldat.til.o \
-	\
-	Graphics/intro/info/info.bmp.o \
-	Graphics/intro/info/info.pal.o \
-	Graphics/intro/logo/logo.bmp.o \
-	Graphics/intro/logo/logo.pal.o \
-	Graphics/intro/player_advance/player_advance.bmp.o \
-	Graphics/intro/player_advance/player_advance.pal.o \
-	\
-	Graphics/menu/menu_principal/menu_principal.bmp.o \
-	Graphics/menu/menu_principal/menu_principal.pal.o \
-	Graphics/menu/menu_briefing/menu_briefing_01.bmp.o \
-	Graphics/menu/menu_briefing/menu_briefing_01.pal.o \
-	\
-	Graphics/maps/exemple/exemple.pal.o \
-	Graphics/maps/exemple/exemple.til.o \
-	Graphics/maps/exemple/exemple_fond.map.o \
-	Graphics/maps/exemple/exemple_plan.map.o \
-	Graphics/maps/exemple/exemple_col.map.o \
-	\
-	Graphics/maps/dam/dam.pal.o \
-	Graphics/maps/dam/dam.til.o \
-	Graphics/maps/dam/dam_fond.map.o \
-	Graphics/maps/dam/dam_plan.map.o \
-	Graphics/maps/dam/dam_col.map.o \
-	\
-#	Sounds/AAS_Data.o \
-# Removed: Musics and sounds to reduce size of ROM during development
-#	Sounds/musiques/dam.o \
-#	Sounds/musiques/theme.o \
-#	Sounds/musiques/mission_briefing.o \
+#---------------------------------------------------------------------------------
+# list of directories containing libraries, this must be the top level containing
+# include and lib
+#---------------------------------------------------------------------------------
+LIBDIRS	:=	
 
-#######################
-# Targets "standards" #
-#######################
-all: $(PROGNAME).gba clean
+#---------------------------------------------------------------------------------
+# no real need to edit anything past this point unless you need to add additional
+# rules for different file extensions
+#---------------------------------------------------------------------------------
+ifneq ($(BUILD),$(notdir $(CURDIR)))
+#---------------------------------------------------------------------------------
 
-%.gba: %.elf
-	$(OBJCOPY) -v -O binary $< $@
-	gbafix.exe $@ -t$*
+export OUTPUT	:=	$(CURDIR)/$(TARGET)
+export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+			$(foreach dir,$(DATA),$(CURDIR)/$(dir)) \
+			$(foreach dir,$(GRAPHICS),$(CURDIR)/$(dir))
 
-%.a: $(OFILES)
-	$(AR) r $(PROGNAME).a $(OFILES)
+export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 
-$(PROGNAME).elf: $(OFILES)
-	$(LD) $(LDFLAGS) -o $@ $(OFILES) $(LD_LIBS)
+#---------------------------------------------------------------------------------
+# automatically build a list of object files for our project
+#---------------------------------------------------------------------------------
+CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
+CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
+SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
+BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
+GFXFILES	:=	$(foreach dir,$(GRAPHICS),$(notdir $(wildcard $(dir)/*.png)))
 
-%.o: %.c
-	$(CC) $(CFLAGS) -o $@ $<
+#---------------------------------------------------------------------------------
+# use CXX for linking C++ projects, CC for standard C
+#---------------------------------------------------------------------------------
+ifeq ($(strip $(CPPFILES)),)
+#---------------------------------------------------------------------------------
+	export LD	:=	$(CC)
+#---------------------------------------------------------------------------------
+else
+#---------------------------------------------------------------------------------
+	export LD	:=	$(CXX)
+#---------------------------------------------------------------------------------
+endif
+#---------------------------------------------------------------------------------
 
-%.o: %.s
-	$(AS) $(ASFLAGS) -o $@ $<
+export OFILES	:=	$(addsuffix .o,$(BINFILES)) \
+					$(GFXFILES:.png=.o) \
+					$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
 
-# Celle-ci est utile lorsqu'on utilise VHAM (F6)
-vbawin: all
-	vbawin.exe $(PROGNAME).gba
+#---------------------------------------------------------------------------------
+# build a list of include paths
+#---------------------------------------------------------------------------------
+export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+			$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+			-I$(CURDIR)/$(BUILD)
 
-#################################
-# Targets speciales a ce projet #
-#################################
+#---------------------------------------------------------------------------------
+# build a list of library paths
+#---------------------------------------------------------------------------------
+export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+
+.PHONY: $(BUILD) clean
+
+#---------------------------------------------------------------------------------
+$(BUILD):
+	@[ -d $@ ] || mkdir -p $@
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+all	: $(BUILD)
+#---------------------------------------------------------------------------------
 clean:
-	rm -f *.s *.i *.elf *.a
+	@echo clean ...
+	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).gba
 
-cleanall: clean
-	rm -f $(OFILES)
+#---------------------------------------------------------------------------------
+else
 
-#######
-# END #
-#######
+DEPENDS	:=	$(OFILES:.o=.d)
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+$(OUTPUT).gba	:	$(OUTPUT).elf
+
+$(OUTPUT).elf	:	$(OFILES)
+
+
+#---------------------------------------------------------------------------------
+# The bin2o rule should be copied and modified
+# for each extension used in the data directories
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+# This rule links in binary data with the .bin extension
+#---------------------------------------------------------------------------------
+%.bin.o	:	%.bin
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+# This rule links in binary data with the .raw extension
+#---------------------------------------------------------------------------------
+%.raw.o	:	%.raw
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+# This rule creates assembly source files using grit
+# grit takes an image file and a .grit describing how the file is to be processed
+# add additional rules like this for each image extension
+# you use in the graphics folders 
+#---------------------------------------------------------------------------------
+
+# With matching grit-file
+%.s %.h	: %.png %.grit
+	grit $< -fts
+
+# No grit-file: try using dir.grit
+%.s %.h	: %.png
+	$(GRIT) $< -fts -ff $(<D)/$(notdir $(<D)).grit
+
+-include $(DEPENDS)
+
+#---------------------------------------------------------------------------------
+endif
+#---------------------------------------------------------------------------------

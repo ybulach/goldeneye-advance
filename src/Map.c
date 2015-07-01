@@ -1,9 +1,9 @@
 ////////////////
 // Inclusions //
 ////////////////
-#include "../../Common/Common.h"
-#include "Map.h"
-#include "../Personnages/Personnages.h"
+#include <Common.h>
+#include <Map.h>
+#include <Personnages.h>
 
 int MAP_WIDTH;
 int MAP_HEIGHT;

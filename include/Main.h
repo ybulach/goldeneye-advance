@@ -45,28 +45,28 @@ extern void mainSaveAll();
 // Graphismes //
 ////////////////
 // Info
-extern const unsigned char info_bitmap8[];
-extern const unsigned short info_palette[];
+extern const unsigned int infoBitmap[];
+extern const unsigned short infoPal[];
 // Player-Advance
-extern const unsigned char player_advance_bitmap8[][];
+extern const unsigned char* player_advance_bitmap8[];
 extern const unsigned short player_advance_palette[];
 // Logo
 extern const unsigned char logo_bitmap8[];
 extern const unsigned short logo_palette[];
 // Menu principal
-extern const unsigned char menu_principal_bitmap8[][];
+extern const unsigned char* menu_principal_bitmap8[];
 extern const unsigned short menu_principal_palette[];
 // Menu Briefing
-extern const unsigned char menu_briefing_01_bitmap8[][];
+extern const unsigned char* menu_briefing_01_bitmap8[];
 extern const unsigned short menu_briefing_01_palette[];
 
 // sprites
-extern const unsigned char tir_tiles[][];
-extern const unsigned char curseur_tiles[][];
-extern const unsigned char font_tiles[][];
+extern const unsigned char* tir_tiles[];
+extern const unsigned char* curseur_tiles[];
+extern const unsigned char* font_tiles[];
 extern const unsigned short interface_palette[];
-extern const unsigned char james_bond_tiles[][];
-extern const unsigned char scientifique_tiles[][];
+extern const unsigned char* james_bond_tiles[];
+extern const unsigned char* scientifique_tiles[];
 
 /////////////
 // Sprites //
